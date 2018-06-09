@@ -26,6 +26,9 @@
     $(this).append('<td class = \'cell\'></td>');
     }
     });
+    $('.table').on('click',  function (evt){
+        $(evt.target).css('background-color', $('.input').val());
+        });
     }
 
     // The event listener sets the background color of a clicked table cell to the value of the color set by the user
