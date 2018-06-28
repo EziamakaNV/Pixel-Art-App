@@ -1,55 +1,72 @@
     //Declared a function used to create the table
     function makeGrid(){
     // Declared variables to hold the values of the table height and width
-    var width = $('#width').val();
+    const width = $('#width').val();
 
-    var height = $('#height').val();
+    const height = $('#height').val();
 
-    //Append a table element, to the article element of ID ' container', with the class 'table'
+    //Append a table element
+    //, to the article element of ID ' container', 
+    //with the class 'table'
     $('#container').append('<table class = \'table\'></table>');
 
     //With a loop, attached rows to the table depending on the height variable
-    for (var x = 0 ; x < height ; x++   ){ 
+    for (let x = 0 ; x < height ; x++   ){ 
 
     $(".table").append('<tr class = \'row\'></tr>');
 
     }
 
     //Stored all 'tr' elements in the variable row
-    var row = $('tr');
+    const row = $('tr');
 
     //Used the jQuery.each method and a for loop to append a 'td' element to each row
     row.each(function (){
 
-    for (var y = 0 ; y < width ; y++){
+    for (let y = 0 ; y < width ; y++){
 
     $(this).append('<td class = \'cell\'></td>');
     }
     });
-    $('.table').on('click',  function (evt){
-        $(evt.target).css('background-color', $('.input').val());
-        });
+
+    //Set an even listener on the table to watch for click events
+    // and change the background color of the cell as appropriate.
+    //The event listener has also been setup in such a way that if
+    //a color has already been picked in a cell, clicking on it again would,
+    //removethe color.
+    $('.table').on('click','td',  function (evt){
+        //Default background-colour for the cell immediately 
+        //after the table has been created is 'rgba(0, 0, 0, 0)'.
+        if ($(evt.target).css('background-color') === 'rgba(0, 0, 0, 0)'){
+            $(evt.target).css('background-color', $('.input').val());
+
+        }
+        else if ($(evt.target).css('background-color') != 'rgba(0, 0, 0, 0)') {
+            $(evt.target).css('background-color','rgba(0, 0, 0, 0)');
+        }
+        else{
+            undefined;
+        }
+
+    });
+       
     }
 
-    // The event listener sets the background color of a clicked table cell to the value of the color set by the user
-    $('.input').on('change', function (){
-    $('.table').on('click',  function (evt){
-    $(evt.target).css('background-color', $('.input').val());
-    });
-    });
 
     // Declared a function to clear the table
     function refresh(){
         $('.table').remove();
     }
 
-    // functions displayOne and displayTwo is used to switch the visibility of the submit and refresh button
+    // functions displayOne and displayTwo is used to switch the visibility
+    // of the submit and refresh button
     function displayOne(){
         $('#refresh').css('display','inline-block');
         $('#submit').css('display','none');
 
 
     }
+
     function displayTwo(){
         $('#refresh').css('display','none');
         $('#submit').css('display','inline-block');
