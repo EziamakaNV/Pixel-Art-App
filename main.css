@@ -15,12 +15,6 @@ table, td, tr{
     
 }
 
-#refresh{
-    display : none;
-    width : 60px;
-    height : 40px;
-}
-
 .table{
     margin: 0 auto;
 }

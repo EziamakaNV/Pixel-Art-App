@@ -1,5 +1,7 @@
     //Declared a function used to create the table
     function makeGrid(){
+    //Clear any existing table
+    $('.table').remove();
     // Declared variables to hold the values of the table height and width
     const width = $('#width').val();
 
@@ -50,25 +52,4 @@
 
     });
        
-    }
-
-
-    // Declared a function to clear the table
-    function refresh(){
-        $('.table').remove();
-    }
-
-    // functions displayOne and displayTwo is used to switch the visibility
-    // of the submit and refresh button
-    function displayOne(){
-        $('#refresh').css('display','inline-block');
-        $('#submit').css('display','none');
-
-
-    }
-
-    function displayTwo(){
-        $('#refresh').css('display','none');
-        $('#submit').css('display','inline-block');
-        
     }
