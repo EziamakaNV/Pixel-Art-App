@@ -31,11 +31,11 @@
     }
     });
 
-    //Set an even listener on the table to watch for click events
+    // Set an even listener on the table to watch for click events
     // and change the background color of the cell as appropriate.
-    //The event listener has also been setup in such a way that if
-    //a color has already been picked in a cell, clicking on it again would,
-    //removethe color.
+    // The event listener has also been setup in such a way that if
+    // a color has already been picked in a cell, clicking on it again would,
+    // removethe color.
     $('.table').on('click','td',  function (evt){
         //Default background-colour for the cell immediately 
         //after the table has been created is 'rgba(0, 0, 0, 0)'.
@@ -51,5 +51,4 @@
         }
 
     });
-       
-    }
+}
